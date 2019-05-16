@@ -7,14 +7,22 @@ export default class OldNote extends Component {
 
     this.state = {
       counter: 0,
-      date: new Date().toTimeString()
+      date: new Date().toTimeString(),
+      interval: 0,
     }
   }
 
   componentDidMount() {
-    setInterval(() => {
-      this.setState({date: new Date().toTimeString()})
+    const interval = setInterval(() => {
+      this.setState({
+        date: new Date().toTimeString(), 
+        interval,
+      })
     }, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.state.interval);
   }
 
   updateCounter = (value) => {
