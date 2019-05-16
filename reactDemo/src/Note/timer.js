@@ -4,9 +4,6 @@ export default function useTimer() {
     const [date, updateDate] = useState(new Date().toTimeString());
 
     useEffect(() => {
-
-        fetch(`asdlfkjasldfsadf/${userid}`)
-
         const interval = setInterval(() => {
           updateDate(new Date().toTimeString());
         }, 1000);

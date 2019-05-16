@@ -1,19 +1,10 @@
 import React, { useState, useEffect } from 'react'
+import useTimer from './timer';
 
 export default function Note() {
 
   const [counter, updateCounter] = useState(0);
-  const [date, updateDate] = useState(new Date().toTimeString());
-
-  useEffect(() => {
-      const interval = setInterval(() => {
-        updateDate(new Date().toTimeString());
-      }, 1000);
-      
-      return () => {
-        clearInterval(interval);
-      }
-  }, []); 
+  const date = useTimer();
 
   return (
     <div>
